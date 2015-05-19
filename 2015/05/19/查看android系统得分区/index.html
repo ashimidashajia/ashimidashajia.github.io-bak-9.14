@@ -1,0 +1,436 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>查看android系统得分区 | 沙罗双树园</title>
+  <meta name="author" content="沙加">
+  
+  <meta name="description" content="查看android系统得分区
+如果知道了android手机的分区情况，就能在危机时刻派上大用处了！！提醒一下只有root权限，才能查看分区信息。连接USB线，打开USB调试功能。首先进入shell终端：
+adb shell
+然后输入：
+cat /proc/parttitions
+可以看到如下图所示得">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="查看android系统得分区"/>
+  <meta property="og:site_name" content="沙罗双树园"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="http://zipperary.com/atom.xml" title="沙罗双树园" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//libs.baidu.com/jquery/1.8.0/jquery.min.js"></script>
+</head>
+
+
+<body>
+  <header id="header" class="inner">
+<div class="alignleft">
+  <h1><a href="/">沙罗双树园</a></h1>
+  <h2><a href="/">一朝入此门，从此红尘了如空</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/archives">归档</a></li>
+    
+      <li><a href="/about">关于</a></li>
+    
+      <li><a href="/tools">工具</a></li>
+    
+	<li> <a href="/atom.xml">RSS</a> </li>
+<li> <a title="把这个链接拖到你的Chrome收藏夹工具栏中" href='javascript:(function() {
+	function c() {
+		var e = document.createElement("link");
+		e.setAttribute("type", "text/css");
+		e.setAttribute("rel", "stylesheet");
+		e.setAttribute("href", f);
+		e.setAttribute("class", l);
+		document.body.appendChild(e)
+	}
+ 
+	function h() {
+		var e = document.getElementsByClassName(l);
+		for (var t = 0; t < e.length; t++) {
+			document.body.removeChild(e[t])
+		}
+	}
+ 
+	function p() {
+		var e = document.createElement("div");
+		e.setAttribute("class", a);
+		document.body.appendChild(e);
+		setTimeout(function() {
+			document.body.removeChild(e)
+		}, 100)
+	}
+ 
+	function d(e) {
+		return {
+			height : e.offsetHeight,
+			width : e.offsetWidth
+		}
+	}
+ 
+	function v(i) {
+		var s = d(i);
+		return s.height > e && s.height < n && s.width > t && s.width < r
+	}
+ 
+	function m(e) {
+		var t = e;
+		var n = 0;
+		while (!!t) {
+			n += t.offsetTop;
+			t = t.offsetParent
+		}
+		return n
+	}
+ 
+	function g() {
+		var e = document.documentElement;
+		if (!!window.innerWidth) {
+			return window.innerHeight
+		} else if (e && !isNaN(e.clientHeight)) {
+			return e.clientHeight
+		}
+		return 0
+	}
+ 
+	function y() {
+		if (window.pageYOffset) {
+			return window.pageYOffset
+		}
+		return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+	}
+ 
+	function E(e) {
+		var t = m(e);
+		return t >= w && t <= b + w
+	}
+ 
+	function S() {
+		var e = document.createElement("audio");
+		e.setAttribute("class", l);
+		e.src = i;
+		e.loop = false;
+		e.addEventListener("canplay", function() {
+			setTimeout(function() {
+				x(k)
+			}, 500);
+			setTimeout(function() {
+				N();
+				p();
+				for (var e = 0; e < O.length; e++) {
+					T(O[e])
+				}
+			}, 15500)
+		}, true);
+		e.addEventListener("ended", function() {
+			N();
+			h()
+		}, true);
+		e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+		document.body.appendChild(e);
+		e.play()
+	}
+ 
+	function x(e) {
+		e.className += " " + s + " " + o
+	}
+ 
+	function T(e) {
+		e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+	}
+ 
+	function N() {
+		var e = document.getElementsByClassName(s);
+		var t = new RegExp("\\b" + s + "\\b");
+		for (var n = 0; n < e.length; ) {
+			e[n].className = e[n].className.replace(t, "")
+		}
+	}
+ 
+	var e = 30;
+	var t = 30;
+	var n = 350;
+	var r = 350;
+	var i = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";
+	var s = "mw-harlem_shake_me";
+	var o = "im_first";
+	var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+	var a = "mw-strobe_light";
+	var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+	var l = "mw_added_css";
+	var b = g();
+	var w = y();
+	var C = document.getElementsByTagName("*");
+	var k = null;
+	for (var L = 0; L < C.length; L++) {
+		var A = C[L];
+		if (v(A)) {
+			if (E(A)) {
+				k = A;
+				break
+			}
+		}
+	}
+	if (A === null) {
+		console.warn("Could not find a node of the right size. Please try a different page.");
+		return
+	}
+	c();
+	S();
+	var O = [];
+	for (var L = 0; L < C.length; L++) {
+		var A = C[L];
+		if (v(A)) {
+			O.push(A)
+		}
+	}
+})()    '>High一下</a> </li>
+
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-05-19T11:03:28.000Z"><a href="/2015/05/19/查看android系统得分区/">2015-05-19</a></time>
+      
+      
+  
+    <h1 class="title">查看android系统得分区</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="查看android系统得分区">查看android系统得分区</h1><hr>
+<p>如果知道了android手机的分区情况，就能在危机时刻派上大用处了！！<br>提醒一下只有root权限，才能查看分区信息。连接USB线，打开USB调试功能。<br>首先进入shell终端：</p>
+<pre><code>adb <span class="built_in">shell</span>
+</code></pre><p>然后输入：</p>
+<pre><code>cat /<span class="keyword">proc</span>/parttitions
+</code></pre><p>可以看到如下图所示得分区信息。<br>  <img src="http://7xj6ce.com1.z0.glb.clouddn.com/cha-kan-fen-qu-xin-xi-1.png" alt="/proc/parttitions"></p>
+<p>不过似乎这不直观，鬼知道这里面得哪个代表recover分区，哪个代表system分区等等呢。<br>接下来输入：</p>
+<pre><code>cat /<span class="keyword">proc</span>/mounts
+</code></pre><p>会看到如下图所示：<br><img src="http://7xj6ce.com1.z0.glb.clouddn.com/cha-kan-fen-qu-xin-xi-2.png" alt="/proc/mounts"></p>
+<p>最后输入：</p>
+<pre><code>$ ls <span class="regexp">/dev/</span>block<span class="regexp">/platform/m</span>sm_sdcc.<span class="number">1</span><span class="regexp">/by-name/</span> -l
+</code></pre><p>就可以看到详细的分区信息啦：</p>
+<pre><code><span class="literal">shell</span>@jftddxx:/ $ ls /dev/block/<span class="literal">platform</span>/msm_sdcc.<span class="number">1</span>/by-<span class="literal">name</span>/ -l
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> aboot -&gt; /dev/block/mmcblk0p6
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> apnhlos -&gt; /dev/block/mmcblk0p1
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> <span class="literal">backup</span> -&gt; /dev/block/mmcblk0p23
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> boot -&gt; /dev/block/mmcblk0p2<span class="number">0</span>
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> cache -&gt; /dev/block/mmcblk0p18
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> carrier -&gt; /dev/block/mmcblk0p28
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> efs -&gt; /dev/block/mmcblk0p1<span class="number">0</span>
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> fota -&gt; /dev/block/mmcblk0p22
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> fsg -&gt; /dev/block/mmcblk0p24
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> hidden -&gt; /dev/block/mmcblk0p27
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> m9kefs1 -&gt; /dev/block/mmcblk0p13
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> m9kefs2 -&gt; /dev/block/mmcblk0p14
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> m9kefs3 -&gt; /dev/block/mmcblk0p15
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> mdm -&gt; /dev/block/mmcblk0p2
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> modemst1 -&gt; /dev/block/mmcblk0p11
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> modemst2 -&gt; /dev/block/mmcblk0p12
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> pad -&gt; /dev/block/mmcblk0p9
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> param -&gt; /dev/block/mmcblk0p19
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> persdata -&gt; /dev/block/mmcblk0p26
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> persist -&gt; /dev/block/mmcblk0p17
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> recovery -&gt; /dev/block/mmcblk0p21
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> rpm -&gt; /dev/block/mmcblk0p7
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> sbl1 -&gt; /dev/block/mmcblk0p3
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> sbl2 -&gt; /dev/block/mmcblk0p4
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> sbl3 -&gt; /dev/block/mmcblk0p5
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> ssd -&gt; /dev/block/mmcblk0p25
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> <span class="literal">system</span> -&gt; /dev/block/mmcblk0p16
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> tz -&gt; /dev/block/mmcblk0p8
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> userdata -&gt; /dev/block/mmcblk0p29
+</code></pre>
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/刷机/">刷机</a>
+  </div>
+
+        
+<!-- Baidu Button BEGIN -->
+<div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare">
+<a class="bds_qzone"></a>
+<a class="bds_tsina"></a>
+<a class="bds_tqq"></a>
+<a class="bds_renren"></a>
+<a class="bds_t163"></a>
+<span class="bds_more"></span>
+<a class="shareCount"></a>
+</div>
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=3326447" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END -->      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+ <nav id="pagination" >
+    
+    
+    <a href="/2015/05/19/三星ubuntu下的刷机工具heimdall/" class="alignright next" >下一页</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+
+
+<section id="comment">
+
+<!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"ashimidashajia"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:ashimidashajia.github.io">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/Android/">Android</a><small>1</small></li>
+  
+    <li><a href="/categories/Android调试/">Android调试</a><small>1</small></li>
+  
+    <li><a href="/categories/linux常用命令/">linux常用命令</a><small>2</small></li>
+  
+    <li><a href="/categories/刷机/">刷机</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">联系我</h3>
+<ul class="entry">
+<li>现职：Android系统移植工程师</li>
+<li>邮箱：ashimidashajia@126.com</a>！</li>
+</ul>
+</div>
+
+
+
+  <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=2&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=5324408874&verifier=59929254&dpc=1"></iframe>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><section>
+Theme of <a href="https://github.com/zippera/lightum">Lightum</a>, Improved from <a href="https://github.com/hexojs/hexo-theme-light">Light</a>, by <a href="/">zippera</a> 
+</section>
+<div class="clearfix"></div>
+</footer>
+  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>
+
+

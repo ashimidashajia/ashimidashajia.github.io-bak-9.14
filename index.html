@@ -219,6 +219,222 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-05-19T11:03:28.000Z"><a href="/2015/05/19/查看android系统得分区/">2015-05-19</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/05/19/查看android系统得分区/">查看android系统得分区</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="查看android系统得分区">查看android系统得分区</h1><hr>
+<p>如果知道了android手机的分区情况，就能在危机时刻派上大用处了！！<br>提醒一下只有root权限，才能查看分区信息。连接USB线，打开USB调试功能。<br>首先进入shell终端：</p>
+<pre><code>adb <span class="built_in">shell</span>
+</code></pre><p>然后输入：</p>
+<pre><code>cat /<span class="keyword">proc</span>/parttitions
+</code></pre><p>可以看到如下图所示得分区信息。<br>  <img src="http://7xj6ce.com1.z0.glb.clouddn.com/cha-kan-fen-qu-xin-xi-1.png" alt="/proc/parttitions"></p>
+<p>不过似乎这不直观，鬼知道这里面得哪个代表recover分区，哪个代表system分区等等呢。<br>接下来输入：</p>
+<pre><code>cat /<span class="keyword">proc</span>/mounts
+</code></pre><p>会看到如下图所示：<br><img src="http://7xj6ce.com1.z0.glb.clouddn.com/cha-kan-fen-qu-xin-xi-2.png" alt="/proc/mounts"></p>
+<p>最后输入：</p>
+<pre><code>$ ls <span class="regexp">/dev/</span>block<span class="regexp">/platform/m</span>sm_sdcc.<span class="number">1</span><span class="regexp">/by-name/</span> -l
+</code></pre><p>就可以看到详细的分区信息啦：</p>
+<pre><code><span class="literal">shell</span>@jftddxx:/ $ ls /dev/block/<span class="literal">platform</span>/msm_sdcc.<span class="number">1</span>/by-<span class="literal">name</span>/ -l
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> aboot -&gt; /dev/block/mmcblk0p6
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> apnhlos -&gt; /dev/block/mmcblk0p1
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> <span class="literal">backup</span> -&gt; /dev/block/mmcblk0p23
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> boot -&gt; /dev/block/mmcblk0p2<span class="number">0</span>
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> cache -&gt; /dev/block/mmcblk0p18
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> carrier -&gt; /dev/block/mmcblk0p28
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> efs -&gt; /dev/block/mmcblk0p1<span class="number">0</span>
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> fota -&gt; /dev/block/mmcblk0p22
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> fsg -&gt; /dev/block/mmcblk0p24
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> hidden -&gt; /dev/block/mmcblk0p27
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> m9kefs1 -&gt; /dev/block/mmcblk0p13
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> m9kefs2 -&gt; /dev/block/mmcblk0p14
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> m9kefs3 -&gt; /dev/block/mmcblk0p15
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> mdm -&gt; /dev/block/mmcblk0p2
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> modemst1 -&gt; /dev/block/mmcblk0p11
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> modemst2 -&gt; /dev/block/mmcblk0p12
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> pad -&gt; /dev/block/mmcblk0p9
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> param -&gt; /dev/block/mmcblk0p19
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> persdata -&gt; /dev/block/mmcblk0p26
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> persist -&gt; /dev/block/mmcblk0p17
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> recovery -&gt; /dev/block/mmcblk0p21
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> rpm -&gt; /dev/block/mmcblk0p7
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> sbl1 -&gt; /dev/block/mmcblk0p3
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> sbl2 -&gt; /dev/block/mmcblk0p4
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> sbl3 -&gt; /dev/block/mmcblk0p5
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> ssd -&gt; /dev/block/mmcblk0p25
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> <span class="literal">system</span> -&gt; /dev/block/mmcblk0p16
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> tz -&gt; /dev/block/mmcblk0p8
+lrwxrwxrwx <span class="literal">root</span>     <span class="literal">root</span>              <span class="number">2015</span>-<span class="number">05</span>-<span class="number">19</span> <span class="number">16</span>:<span class="number">54</span> userdata -&gt; /dev/block/mmcblk0p29
+</code></pre>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-05-19T11:03:28.000Z"><a href="/2015/05/19/三星ubuntu下的刷机工具heimdall/">2015-05-19</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/05/19/三星ubuntu下的刷机工具heimdall/">三星ubuntu下的刷机工具heimdall简单使用</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="三星ubuntu下的刷机工具heimdall">三星ubuntu下的刷机工具heimdall</h1><p>标签： heimdall 三星刷机</p>
+<hr>
+<p>点击下面连接：：<br><a href="https://launchpad.net/ubuntu/+source/heimdall-flash" target="_blank" rel="external">ubuntu下heimdall的下载地址</a><br>以防地址失效，直接给出连接：<a href="https://launchpad.net/ubuntu/+source/heimdall-flash" target="_blank" rel="external">https://launchpad.net/ubuntu/+source/heimdall-flash</a></p>
+<p>开机按住电源键和音量下键，进入线刷模式。<br>刷机命令：</p>
+<pre><code>sudo heimdall flash <span class="comment">--BOOT boot.img</span>
+sudo heimdall flash <span class="comment">--SYSTEM system.img</span>
+</code></pre><p>相当于卡刷。</p>
+<pre><code>sudo heimdall flash <span class="comment">--RECOVERY recovery.img</span>
+</code></pre><p>刷recover.img</p>
+<p>其实和fastboot命令差不多，只不过是修改为了heimadll.在三星S4测试通过。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-05-19T11:03:28.000Z"><a href="/2015/05/19/ubuntu下USB连接Android手机/">2015-05-19</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/05/19/ubuntu下USB连接Android手机/">ubuntu下USB连接Android手机</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="ubuntu下USB连接Android手机">ubuntu下USB连接Android手机</h1><p>标签（空格分隔）： adb调试</p>
+<hr>
+<p>ubuntu下USB连接Android手机后，使用adb devices 出现如下：</p>
+<pre><code><span class="built_in">List</span> <span class="keyword">of</span> devices attached
+???????????? no permissions
+</code></pre><p>网上得说法人云亦云，反正我是按照网上得说法没成功。经过自己摸索如下：</p>
+<p>将adb命令拷贝到/usr/bin 中（否则无法sudo执行adb命令）,然后</p>
+<pre><code>sudo adb <span class="operator"><span class="keyword">start</span>-<span class="keyword">server</span></span>
+</code></pre><p>这才是关键：即以root权限，运行adb server。<br>之后就可以</p>
+<pre><code><span class="title">adb</span> devices
+
+看到连接android设备了，前提你要打开USB调试。
+</code></pre><h3 id="附带网络上常见得解决方案：">附带网络上常见得解决方案：</h3><p>因为ubuntu这样的系统都是默认以非root身份在运行的，要使用usb调试，需要sudo支持。</p>
+<pre><code>$ lsusb
+<span class="keyword">Bus</span> <span class="number">005</span> Device <span class="number">001</span>: ID <span class="number">1</span>d6b:<span class="number">0001</span> Linux Foundation <span class="number">1.1</span> root hub
+<span class="keyword">Bus</span> <span class="number">004</span> Device <span class="number">001</span>: ID <span class="number">1</span>d6b:<span class="number">0001</span> Linux Foundation <span class="number">1.1</span> root hub
+<span class="keyword">Bus</span> <span class="number">003</span> Device <span class="number">001</span>: ID <span class="number">1</span>d6b:<span class="number">0001</span> Linux Foundation <span class="number">1.1</span> root hub
+<span class="keyword">Bus</span> <span class="number">002</span> Device <span class="number">003</span>: ID <span class="number">413</span>c:<span class="number">2106</span> Dell Computer Corp.
+<span class="keyword">Bus</span> <span class="number">002</span> Device <span class="number">002</span>: ID <span class="number">0461</span>:<span class="number">4</span>d81 Primax Electronics, Ltd
+<span class="keyword">Bus</span> <span class="number">002</span> Device <span class="number">001</span>: ID <span class="number">1</span>d6b:<span class="number">0001</span> Linux Foundation <span class="number">1.1</span> root hub
+<span class="keyword">Bus</span> <span class="number">001</span> Device <span class="number">010</span>: ID <span class="number">0</span>bb4:<span class="number">0</span>c87 High Tech Computer Corp.
+<span class="keyword">Bus</span> <span class="number">001</span> Device <span class="number">001</span>: ID <span class="number">1</span>d6b:<span class="number">0002</span> Linux Foundation <span class="number">2.0</span> root hub
+</code></pre><p>列表中，Bus 001 Device 010: ID 0bb4:0c87 High Tech Computer Corp. 这一行为htc手机的usb使用端口，记录一下，id为0bb4（基于上所有的htc都是这个ID）。</p>
+<pre><code>$sudo vim <span class="regexp">/etc/u</span>dev<span class="regexp">/rules.d/</span><span class="number">70</span>-android.rules
+</code></pre><p>加入以下内容：</p>
+<pre><code>SUBSYSTEM==<span class="string">"usb"</span>, ATTRS<span class="list">{idVendor}</span>==<span class="string">"0bb4"</span>, ATTRS<span class="list">{idProduct}</span>==<span class="string">"0c87"</span>,MODE=<span class="string">"0666"</span>
+</code></pre><p>其中的idvendor idProduct指的是USB的ID可以使用lsusb查询得到。<br>比如我的是：</p>
+<pre><code><span class="tag">lsusb</span>
+<span class="tag">Bus</span> 001 <span class="tag">Device</span> 010: <span class="tag">ID</span> 0<span class="tag">bb4</span><span class="pseudo">:0c87</span> <span class="tag">High</span> <span class="tag">Tech</span> <span class="tag">Computer</span> <span class="tag">Corp</span>
+</code></pre><p>ID 0bb4 就是idVendor ，0c87就是 idProduct<br>运行命令，重启udev：</p>
+<pre><code><span class="variable">$sudo</span> chmod a+rx /etc/udev/rules.d/<span class="number">70</span>-android<span class="class">.rules</span>
+<span class="variable">$sudo</span> service udev restart
+</code></pre>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-05-19T08:04:40.000Z"><a href="/2015/05/19/linux下利用rsync快速同步即拷贝数据/">2015-05-19</a></time>
       
       
@@ -442,82 +658,6 @@ sed -<span class="tag">i</span> <span class="string">"s#查找字段#替换字�
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-05-19T06:12:50.000Z"><a href="/2015/05/19/ubuntu下USB连接Android手机/">2015-05-19</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/05/19/ubuntu下USB连接Android手机/">ubuntu下USB连接Android手机</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h1 id="ubuntu下USB连接Android手机">ubuntu下USB连接Android手机</h1><p>标签（空格分隔）： adb调试</p>
-<hr>
-<p>ubuntu下USB连接Android手机后，使用adb devices 出现如下：</p>
-<pre><code><span class="built_in">List</span> <span class="keyword">of</span> devices attached
-???????????? no permissions
-</code></pre><p>网上得说法人云亦云，反正我是按照网上得说法没成功。经过自己摸索如下：</p>
-<p>将adb命令拷贝到/usr/bin 中（否则无法sudo执行adb命令）,然后</p>
-<pre><code>sudo adb <span class="operator"><span class="keyword">start</span>-<span class="keyword">server</span></span>
-</code></pre><p>这才是关键：即以root权限，运行adb server。<br>之后就可以</p>
-<pre><code><span class="title">adb</span> devices
-
-看到连接android设备了，前提你要打开USB调试。
-</code></pre><h3 id="附带网络上常见得解决方案：">附带网络上常见得解决方案：</h3><p>因为ubuntu这样的系统都是默认以非root身份在运行的，要使用usb调试，需要sudo支持。</p>
-<pre><code>$ lsusb
-<span class="keyword">Bus</span> <span class="number">005</span> Device <span class="number">001</span>: ID <span class="number">1</span>d6b:<span class="number">0001</span> Linux Foundation <span class="number">1.1</span> root hub
-<span class="keyword">Bus</span> <span class="number">004</span> Device <span class="number">001</span>: ID <span class="number">1</span>d6b:<span class="number">0001</span> Linux Foundation <span class="number">1.1</span> root hub
-<span class="keyword">Bus</span> <span class="number">003</span> Device <span class="number">001</span>: ID <span class="number">1</span>d6b:<span class="number">0001</span> Linux Foundation <span class="number">1.1</span> root hub
-<span class="keyword">Bus</span> <span class="number">002</span> Device <span class="number">003</span>: ID <span class="number">413</span>c:<span class="number">2106</span> Dell Computer Corp.
-<span class="keyword">Bus</span> <span class="number">002</span> Device <span class="number">002</span>: ID <span class="number">0461</span>:<span class="number">4</span>d81 Primax Electronics, Ltd
-<span class="keyword">Bus</span> <span class="number">002</span> Device <span class="number">001</span>: ID <span class="number">1</span>d6b:<span class="number">0001</span> Linux Foundation <span class="number">1.1</span> root hub
-<span class="keyword">Bus</span> <span class="number">001</span> Device <span class="number">010</span>: ID <span class="number">0</span>bb4:<span class="number">0</span>c87 High Tech Computer Corp.
-<span class="keyword">Bus</span> <span class="number">001</span> Device <span class="number">001</span>: ID <span class="number">1</span>d6b:<span class="number">0002</span> Linux Foundation <span class="number">2.0</span> root hub
-</code></pre><p>列表中，Bus 001 Device 010: ID 0bb4:0c87 High Tech Computer Corp. 这一行为htc手机的usb使用端口，记录一下，id为0bb4（基于上所有的htc都是这个ID）。</p>
-<pre><code>$sudo vim <span class="regexp">/etc/u</span>dev<span class="regexp">/rules.d/</span><span class="number">70</span>-android.rules
-</code></pre><p>加入以下内容：</p>
-<pre><code>SUBSYSTEM==<span class="string">"usb"</span>, ATTRS<span class="list">{idVendor}</span>==<span class="string">"0bb4"</span>, ATTRS<span class="list">{idProduct}</span>==<span class="string">"0c87"</span>,MODE=<span class="string">"0666"</span>
-</code></pre><p>其中的idvendor idProduct指的是USB的ID可以使用lsusb查询得到。<br>比如我的是：</p>
-<pre><code><span class="tag">lsusb</span>
-<span class="tag">Bus</span> 001 <span class="tag">Device</span> 010: <span class="tag">ID</span> 0<span class="tag">bb4</span><span class="pseudo">:0c87</span> <span class="tag">High</span> <span class="tag">Tech</span> <span class="tag">Computer</span> <span class="tag">Corp</span>
-</code></pre><p>ID 0bb4 就是idVendor ，0c87就是 idProduct<br>运行命令，重启udev：</p>
-<pre><code><span class="variable">$sudo</span> chmod a+rx /etc/udev/rules.d/<span class="number">70</span>-android<span class="class">.rules</span>
-<span class="variable">$sudo</span> service udev restart
-</code></pre>
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
         <time datetime="2015-05-18T00:57:45.000Z"><a href="/2015/05/18/2015-05-16-test/">2015-05-18</a></time>
       
       
@@ -633,6 +773,8 @@ sed -<span class="tag">i</span> <span class="string">"s#查找字段#替换字�
     <li><a href="/categories/Android调试/">Android调试</a><small>1</small></li>
   
     <li><a href="/categories/linux常用命令/">linux常用命令</a><small>2</small></li>
+  
+    <li><a href="/categories/刷机/">刷机</a><small>2</small></li>
   
   </ul>
 </div>
