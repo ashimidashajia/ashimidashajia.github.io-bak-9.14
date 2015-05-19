@@ -13,7 +13,7 @@
 ubuntu下USB连接Android手机后，使用adb devices 出现如下：
 List of devices attached
 ???????????? no permissions
-网上得说法人云亦云，反正我是按照">
+网上得说法人云亦云，反正我是按照网上得说法没成功。经过自己摸索如下：">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -225,7 +225,7 @@ List of devices attached
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-05-19T11:03:28.000Z"><a href="/2015/05/19/ubuntu下USB连接Android手机/">2015-05-19</a></time>
+        <time datetime="2015-05-19T11:08:58.000Z"><a href="/2015/05/19/ubuntu下USB连接Android手机/">2015-05-19</a></time>
       
       
   
@@ -240,8 +240,7 @@ List of devices attached
 <p>ubuntu下USB连接Android手机后，使用adb devices 出现如下：</p>
 <pre><code><span class="built_in">List</span> <span class="keyword">of</span> devices attached
 ???????????? no permissions
-</code></pre><p>网上得说法人云亦云，反正我是按照网上得说法没成功。经过自己摸索如下：</p>
-<p>将adb命令拷贝到/usr/bin 中（否则无法sudo执行adb命令）,然后</p>
+</code></pre><p>网上得说法人云亦云，反正我是按照网上得说法没成功。经过自己摸索如下：<br><a id="more"></a><br>将adb命令拷贝到/usr/bin 中（否则无法sudo执行adb命令）,然后</p>
 <pre><code>sudo adb <span class="operator"><span class="keyword">start</span>-<span class="keyword">server</span></span>
 </code></pre><p>这才是关键：即以root权限，运行adb server。<br>之后就可以</p>
 <pre><code><span class="title">adb</span> devices
@@ -304,10 +303,10 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
 
  <nav id="pagination" >
     
-    <a href="/2015/05/19/三星ubuntu下的刷机工具heimdall/" class="alignleft prev" >上一页</a>
+    <a href="/2015/05/19/查看android系统得分区/" class="alignleft prev" >上一页</a>
     
     
-    <a href="/2015/05/19/linux下利用rsync快速同步即拷贝数据/" class="alignright next" >下一页</a>
+    <a href="/2015/05/19/linux下批量替换文件内容/" class="alignright next" >下一页</a>
     
     <div class="clearfix"></div>
 </nav>
