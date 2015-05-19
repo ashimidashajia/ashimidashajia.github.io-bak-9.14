@@ -5,13 +5,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>归档：2015/5 | 沙罗双树园</title>
+  <title>ubuntu下USB连接Android手机 | 沙罗双树园</title>
   <meta name="author" content="沙加">
+  
+  <meta name="description" content="ubuntu下USB连接Android手机标签（空格分隔）： adb调试
+
+ubuntu下USB连接Android手机后，使用adb devices 出现如下：
+List of devices attached
+???????????? no permissions
+网上得说法人云亦云，反正我是按照">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="ubuntu下USB连接Android手机"/>
   <meta property="og:site_name" content="沙罗双树园"/>
 
   
@@ -200,61 +207,130 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title">2015/5</h2>
-
-
-  <div class="archive">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
     
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2015-05-19T06:12:50.000Z"><a href="/2015/05/19/linux下批量替换文件内容/">2015-05-19</a></time>
-            
-              <h1 class="title"><a href="/2015/05/19/linux下批量替换文件内容/"></a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2015-05-19T06:12:50.000Z"><a href="/2015/05/19/ubuntu下USB连接Android手机/">2015-05-19</a></time>
-            
-              <h1 class="title"><a href="/2015/05/19/ubuntu下USB连接Android手机/">ubuntu下USB连接Android手机</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2015-05-17T11:56:46.000Z"><a href="/2015/05/17/2015-05-16-test/">2015-05-17</a></time>
-            
-              <h1 class="title"><a href="/2015/05/17/2015-05-16-test/">测试</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2015-05-17T07:46:12.000Z"><a href="/2015/05/17/hello-world/">2015-05-17</a></time>
-            
-              <h1 class="title"><a href="/2015/05/17/hello-world/">Hello World</a></h1>
-            
-          </header>
-        </div>
-      </article>
+      <img src="">
     
   </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-05-19T06:12:50.000Z"><a href="/2015/05/19/ubuntu下USB连接Android手机/">2015-05-19</a></time>
+      
+      
+  
+    <h1 class="title">ubuntu下USB连接Android手机</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="ubuntu下USB连接Android手机">ubuntu下USB连接Android手机</h1><p>标签（空格分隔）： adb调试</p>
+<hr>
+<p>ubuntu下USB连接Android手机后，使用adb devices 出现如下：</p>
+<pre><code><span class="built_in">List</span> <span class="keyword">of</span> devices attached
+???????????? no permissions
+</code></pre><p>网上得说法人云亦云，反正我是按照网上得说法没成功。经过自己摸索如下：</p>
+<p>将adb命令拷贝到/usr/bin 中（否则无法sudo执行adb命令）,然后</p>
+<pre><code>sudo adb <span class="operator"><span class="keyword">start</span>-<span class="keyword">server</span></span>
+</code></pre><p>这才是关键：即以root权限，运行adb server。<br>之后就可以</p>
+<pre><code><span class="title">adb</span> devices
+
+看到连接android设备了，前提你要打开USB调试。
+</code></pre><h3 id="附带网络上常见得解决方案：">附带网络上常见得解决方案：</h3><p>因为ubuntu这样的系统都是默认以非root身份在运行的，要使用usb调试，需要sudo支持。</p>
+<pre><code>$ lsusb
+<span class="keyword">Bus</span> <span class="number">005</span> Device <span class="number">001</span>: ID <span class="number">1</span>d6b:<span class="number">0001</span> Linux Foundation <span class="number">1.1</span> root hub
+<span class="keyword">Bus</span> <span class="number">004</span> Device <span class="number">001</span>: ID <span class="number">1</span>d6b:<span class="number">0001</span> Linux Foundation <span class="number">1.1</span> root hub
+<span class="keyword">Bus</span> <span class="number">003</span> Device <span class="number">001</span>: ID <span class="number">1</span>d6b:<span class="number">0001</span> Linux Foundation <span class="number">1.1</span> root hub
+<span class="keyword">Bus</span> <span class="number">002</span> Device <span class="number">003</span>: ID <span class="number">413</span>c:<span class="number">2106</span> Dell Computer Corp.
+<span class="keyword">Bus</span> <span class="number">002</span> Device <span class="number">002</span>: ID <span class="number">0461</span>:<span class="number">4</span>d81 Primax Electronics, Ltd
+<span class="keyword">Bus</span> <span class="number">002</span> Device <span class="number">001</span>: ID <span class="number">1</span>d6b:<span class="number">0001</span> Linux Foundation <span class="number">1.1</span> root hub
+<span class="keyword">Bus</span> <span class="number">001</span> Device <span class="number">010</span>: ID <span class="number">0</span>bb4:<span class="number">0</span>c87 High Tech Computer Corp.
+<span class="keyword">Bus</span> <span class="number">001</span> Device <span class="number">001</span>: ID <span class="number">1</span>d6b:<span class="number">0002</span> Linux Foundation <span class="number">2.0</span> root hub
+</code></pre><p>列表中，Bus 001 Device 010: ID 0bb4:0c87 High Tech Computer Corp. 这一行为htc手机的usb使用端口，记录一下，id为0bb4（基于上所有的htc都是这个ID）。</p>
+<pre><code>$sudo vim <span class="regexp">/etc/u</span>dev<span class="regexp">/rules.d/</span><span class="number">70</span>-android.rules
+</code></pre><p>加入以下内容：</p>
+<pre><code>SUBSYSTEM==<span class="string">"usb"</span>, ATTRS<span class="list">{idVendor}</span>==<span class="string">"0bb4"</span>, ATTRS<span class="list">{idProduct}</span>==<span class="string">"0c87"</span>,MODE=<span class="string">"0666"</span>
+</code></pre><p>其中的idvendor idProduct指的是USB的ID可以使用lsusb查询得到。<br>比如我的是：</p>
+<pre><code><span class="tag">lsusb</span>
+<span class="tag">Bus</span> 001 <span class="tag">Device</span> 010: <span class="tag">ID</span> 0<span class="tag">bb4</span><span class="pseudo">:0c87</span> <span class="tag">High</span> <span class="tag">Tech</span> <span class="tag">Computer</span> <span class="tag">Corp</span>
+</code></pre><p>ID 0bb4 就是idVendor ，0c87就是 idProduct<br>运行命令，重启udev：</p>
+<pre><code><span class="variable">$sudo</span> chmod a+rx /etc/udev/rules.d/<span class="number">70</span>-android<span class="class">.rules</span>
+<span class="variable">$sudo</span> service udev restart
+</code></pre>
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/Android调试/">Android调试</a>
+  </div>
+
+        
+<!-- Baidu Button BEGIN -->
+<div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare">
+<a class="bds_qzone"></a>
+<a class="bds_tsina"></a>
+<a class="bds_tqq"></a>
+<a class="bds_renren"></a>
+<a class="bds_t163"></a>
+<span class="bds_more"></span>
+<a class="shareCount"></a>
+</div>
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=3326447" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END -->      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+ <nav id="pagination" >
+    
+    <a href="/2015/05/19/linux下批量替换文件内容/" class="alignleft prev" >上一页</a>
+    
+    
+    <a href="/2015/05/17/2015-05-16-test/" class="alignright next" >下一页</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+
+
+<section id="comment">
+
+<!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"ashimidashajia"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+</section>
+
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
