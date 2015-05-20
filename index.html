@@ -219,6 +219,64 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-05-20T11:29:20.000Z"><a href="/2015/05/20/提取android5.0升级包中得system.img镜像内容/">2015-05-20</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/05/20/提取android5.0升级包中得system.img镜像内容/">提取android5.0升级包中得system.img镜像内容</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="提取android5-0升级包中得system-img镜像内容">提取android5.0升级包中得system.img镜像内容</h1><p>标签： 刷机</p>
+<hr>
+<p>android5.0的zip包解压之后，包含：</p>
+<pre><code>install
+boot<span class="class">.img</span>
+file_contexts
+META-INF
+system<span class="class">.new</span><span class="class">.dat</span>
+system<span class="class">.patch</span><span class="class">.dat</span>
+system<span class="class">.transfer</span><span class="class">.list</span>
+</code></pre>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/05/20/提取android5.0升级包中得system.img镜像内容/#more" class="more-link">阅读全文</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-05-20T11:28:13.000Z"><a href="/2015/05/20/VIM 复制内容到剪贴板 剪贴板复制到VIM/">2015-05-20</a></time>
       
       
@@ -291,73 +349,6 @@ su //切换到<span class="literal">root</span>用户
 <pre><code>adb <span class="literal">root</span>
 adb <span class="literal">shell</span> <span class="keyword">mount</span> -o remount rw /<span class="literal">system</span>
 </code></pre><p>这样执行成功的话，就可以在system分区任意写东西了。</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-05-20T11:28:13.000Z"><a href="/2015/05/20/提取android5.0升级包中得system.img镜像内容/">2015-05-20</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/05/20/提取android5.0升级包中得system.img镜像内容/">提取android5.0升级包中得system.img镜像内容</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h1 id="提取android5-0升级包中得system-img镜像内容">提取android5.0升级包中得system.img镜像内容</h1><p>标签： 刷机</p>
-<hr>
-<p>android5.0的zip包解压之后，包含：</p>
-<pre><code>install
-boot<span class="class">.img</span>
-file_contexts
-META-INF
-system<span class="class">.new</span><span class="class">.dat</span>
-system<span class="class">.patch</span><span class="class">.dat</span>
-system<span class="class">.transfer</span><span class="class">.list</span>
-</code></pre><p>system的内容包含在了system.new.dat，所以我们需要对这个文件进行解包操作。system.new.dat文件实际上是由system.transfer.list描述的一个稀疏数组。</p>
-<pre><code><span class="number">2</span>
-<span class="number">117569</span>
-<span class="number">0</span>
-<span class="number">0</span>
-<span class="keyword">erase</span> <span class="number">2</span>,<span class="number">0</span>,<span class="number">288358</span>
-<span class="keyword">new</span> <span class="number">32</span>,<span class="number">0</span>,<span class="number">32767</span>,<span class="number">32768</span>,<span class="number">32770</span>,<span class="number">32841</span>,<span class="number">32843</span>,<span class="number">33344</span>,<span class="number">65535</span>,<span class="number">65536</span>,<span class="number">65538</span>,<span class="number">98304</span>,<span class="number">98306</span>,<span class="number">98377</span>,<span class="number">98379</span>,<span class="number">98880</span>,<span class="number">125757</span>,<span class="number">131072</span>,<span class="number">131074</span>,<span class="number">163840</span>,<span class="number">163842</span>,<span class="number">163913</span>,<span class="number">163915</span>,<span class="number">196608</span>,<span class="number">196610</span>,<span class="number">229376</span>,<span class="number">229378</span>,<span class="number">229449</span>,<span class="number">229451</span>,<span class="number">262144</span>,<span class="number">262146</span>,<span class="number">262647</span>,<span class="number">288357</span>
-</code></pre><p>第一行的”2”代表的是该文件的版本号，网络上很多文章中提到得sdat2img，其实是针对版本”1”的，所以不能使用，这里提供一个适合”2”版本的python脚本。复制以下代码，保存为sdat2img.py.放入到解压的升级包中，然后执行：</p>
-<pre><code>chmod +x sdat2img<span class="class">.py</span> 
-sdat2img<span class="class">.py</span> system<span class="class">.transfer</span><span class="class">.list</span> system<span class="class">.new</span><span class="class">.dat</span> new_system<span class="class">.img</span>
-sudo mount -t ext4 -o loop,ro,noexec,noload new_system<span class="class">.img</span> /mnt/rom
-</code></pre><p>在/mnt/rom目录下即可看到system目录的内容.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment">#encoding:utf8</span></span><br><span class="line"><span class="comment">#====================================================</span></span><br><span class="line"><span class="comment">#          FILE: sdat2img.py</span></span><br><span class="line"><span class="comment">#       AUTHORS: xpirt - luxi78 - howellzhu</span></span><br><span class="line"><span class="comment">#          DATE: 2015-03-29 14:22:03 CST</span></span><br><span class="line"><span class="comment">#====================================================</span></span><br><span class="line"><span class="keyword">import</span> sys, os</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    TRANSFER_LIST_FILE = str(sys.argv[<span class="number">1</span>])</span><br><span class="line">    NEW_DATA_FILE = str(sys.argv[<span class="number">2</span>])</span><br><span class="line">    OUTPUT_IMAGE_FILE = str(sys.argv[<span class="number">3</span>])</span><br><span class="line"><span class="keyword">except</span> IndexError:</span><br><span class="line">   <span class="keyword">print</span> (<span class="string">"\nsdat2img - usage is: \n\n      sdat2img &lt;transfer_list&gt; &lt;system_new_file&gt; &lt;system_img&gt;\n\n"</span>)</span><br><span class="line">   <span class="keyword">print</span> (<span class="string">"Visit xda thread for more information.\n"</span>)</span><br><span class="line">   <span class="keyword">try</span>:</span><br><span class="line">       input = raw_input</span><br><span class="line">   <span class="keyword">except</span> NameError: <span class="keyword">pass</span></span><br><span class="line">   input (<span class="string">"Press any key to exit\n"</span>)</span><br><span class="line">   sys.exit()</span><br><span class="line"></span><br><span class="line">BLOCK_SIZE = <span class="number">4096</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rangeset</span><span class="params">(src)</span>:</span></span><br><span class="line">    src_set = src.split(<span class="string">','</span>)</span><br><span class="line">    num_set =  [int(item) <span class="keyword">for</span> item <span class="keyword">in</span> src_set]</span><br><span class="line">    <span class="keyword">if</span> len(num_set) != num_set[<span class="number">0</span>]+<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">print</span> (<span class="string">'Error on parsing following data to rangeset:\n%s'</span> % src)</span><br><span class="line">        sys.exit(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> tuple ([ (num_set[i], num_set[i+<span class="number">1</span>]) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, len(num_set), <span class="number">2</span>) ])</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parse_transfer_list_file</span><span class="params">(path)</span>:</span></span><br><span class="line">    trans_list = open(TRANSFER_LIST_FILE, <span class="string">'r'</span>)</span><br><span class="line">    version = int(trans_list.readline())    <span class="comment"># 1st line = transfer list version</span></span><br><span class="line">    new_blocks = int(trans_list.readline()) <span class="comment"># 2nd line = total number of blocks</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># version 2 introduced with android-5.1.0_r1</span></span><br><span class="line">    <span class="comment"># skip next 2 lines. we don't need this stuff now</span></span><br><span class="line">    <span class="keyword">if</span> version &gt;= <span class="number">2</span>:</span><br><span class="line">        trans_list.readline()               <span class="comment"># 3rd line = stash entries needed simultaneously</span></span><br><span class="line">        trans_list.readline()               <span class="comment"># 4th line = number of blocks that will be stashed</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> trans_list:</span><br><span class="line">        line = line.split(<span class="string">' '</span>)              <span class="comment"># 5th &amp; next lines should be only commands</span></span><br><span class="line">        cmd = line[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">if</span> <span class="string">'erase'</span> == cmd:</span><br><span class="line">            erase_block_set = rangeset(line[<span class="number">1</span>])</span><br><span class="line">        <span class="keyword">elif</span> <span class="string">'new'</span> == cmd:</span><br><span class="line">            new_block_set = rangeset(line[<span class="number">1</span>])</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment"># skip lines starting with numbers, they're not commands anyway.</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> cmd[<span class="number">0</span>].isdigit():</span><br><span class="line">                <span class="keyword">print</span> (<span class="string">'No valid command: %s.'</span> % cmd)</span><br><span class="line">                trans_list.close()</span><br><span class="line">                sys.exit(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    trans_list.close()</span><br><span class="line">    <span class="keyword">return</span> version, new_blocks, erase_block_set, new_block_set</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">init_output_file_size</span><span class="params">(output_file_obj, erase_block_set)</span>:</span></span><br><span class="line">    max_block_num = max(pair[<span class="number">1</span>] <span class="keyword">for</span> pair <span class="keyword">in</span> erase_block_set)</span><br><span class="line">    output_file_obj.seek(max_block_num*BLOCK_SIZE - <span class="number">1</span>)</span><br><span class="line">    output_file_obj.write(<span class="string">'\0'</span>.encode(<span class="string">'utf-8'</span>))</span><br><span class="line">    output_file_obj.flush()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(argv)</span>:</span></span><br><span class="line">    version, new_blocks, erase_block_set, new_block_set =  parse_transfer_list_file(TRANSFER_LIST_FILE)</span><br><span class="line">    output_img = open(OUTPUT_IMAGE_FILE, <span class="string">'wb'</span>)</span><br><span class="line">    init_output_file_size(output_img, erase_block_set)</span><br><span class="line">    new_data_file = open(NEW_DATA_FILE, <span class="string">'rb'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> block <span class="keyword">in</span> new_block_set:</span><br><span class="line">        begin = block[<span class="number">0</span>]</span><br><span class="line">        end = block[<span class="number">1</span>]</span><br><span class="line">        block_count = end - begin</span><br><span class="line">        <span class="keyword">print</span> (<span class="string">'Reading %d blocks...'</span> % block_count),</span><br><span class="line">        data = new_data_file.read(block_count*BLOCK_SIZE)</span><br><span class="line">        <span class="keyword">print</span> (<span class="string">'Writing to %d...'</span> % begin),</span><br><span class="line">        output_img.seek(begin*BLOCK_SIZE)</span><br><span class="line">        output_img.write(data)</span><br><span class="line"></span><br><span class="line">    output_img.close()</span><br><span class="line">    new_data_file.close()</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">'\nDone! Output image: %s'</span> % os.path.realpath(output_img.name))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    main(sys.argv)</span><br></pre></td></tr></table></figure>
 
       
     </div>
