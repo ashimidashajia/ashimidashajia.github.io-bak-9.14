@@ -5,13 +5,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>linux常用命令 | 沙罗双树园</title>
+  <title>重新挂载system分区，使其具有写权限 | 沙罗双树园</title>
   <meta name="author" content="沙加">
+  
+  <meta name="description" content="重新挂载system分区，使其具有写权限标签： 刷机
+
+首先保证自己具有root权限
+adb shell
+su //切换到root用户
+mount -o remount,rw /system
+或者
+adb root
+adb shell mount -o remount rw /system
+这样执行">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="重新挂载system分区，使其具有写权限"/>
   <meta property="og:site_name" content="沙罗双树园"/>
 
   
@@ -200,49 +211,108 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title category">linux常用命令</h2>
-
-
-  <div class="archive">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
     
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2015-05-20T11:28:13.000Z"><a href="/2015/05/20/VIM 复制内容到剪贴板 剪贴板复制到VIM/">2015-05-20</a></time>
-            
-              <h1 class="title"><a href="/2015/05/20/VIM 复制内容到剪贴板 剪贴板复制到VIM/">VIM 复制内容到剪贴板 剪贴板复制到VIM</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2015-05-19T11:08:52.000Z"><a href="/2015/05/19/linux下批量替换文件内容/">2015-05-19</a></time>
-            
-              <h1 class="title"><a href="/2015/05/19/linux下批量替换文件内容/">linux下批量替换文件内容</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2015-05-19T11:08:47.000Z"><a href="/2015/05/19/linux下利用rsync快速同步即拷贝数据/">2015-05-19</a></time>
-            
-              <h1 class="title"><a href="/2015/05/19/linux下利用rsync快速同步即拷贝数据/">linux下利用rsync快速同步即拷贝数据</a></h1>
-            
-          </header>
-        </div>
-      </article>
+      <img src="">
     
   </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-05-20T11:28:13.000Z"><a href="/2015/05/20/重新挂载system分区，使其具有写权限/">2015-05-20</a></time>
+      
+      
+  
+    <h1 class="title">重新挂载system分区，使其具有写权限</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="重新挂载system分区，使其具有写权限">重新挂载system分区，使其具有写权限</h1><p>标签： 刷机</p>
+<hr>
+<p>首先保证自己具有root权限</p>
+<pre><code>adb <span class="literal">shell</span>
+su //切换到<span class="literal">root</span>用户
+<span class="keyword">mount</span> -o remount,rw /<span class="literal">system</span>
+</code></pre><p>或者</p>
+<pre><code>adb <span class="literal">root</span>
+adb <span class="literal">shell</span> <span class="keyword">mount</span> -o remount rw /<span class="literal">system</span>
+</code></pre><p>这样执行成功的话，就可以在system分区任意写东西了。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/刷机/">刷机</a>
+  </div>
+
+        
+<!-- Baidu Button BEGIN -->
+<div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare">
+<a class="bds_qzone"></a>
+<a class="bds_tsina"></a>
+<a class="bds_tqq"></a>
+<a class="bds_renren"></a>
+<a class="bds_t163"></a>
+<span class="bds_more"></span>
+<a class="shareCount"></a>
+</div>
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=3326447" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END -->      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+ <nav id="pagination" >
+    
+    <a href="/2015/05/20/VIM 复制内容到剪贴板 剪贴板复制到VIM/" class="alignleft prev" >上一页</a>
+    
+    
+    <a href="/2015/05/20/提取android5.0升级包中得system.img镜像内容/" class="alignright next" >下一页</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+
+
+<section id="comment">
+
+<!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"ashimidashajia"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+</section>
+
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
